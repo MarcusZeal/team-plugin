@@ -1,0 +1,93 @@
+/*
+  Theming via CSS variables (scoped to .tp-theme)
+  Override any variable on a wrapper to rebrand quickly.
+*/
+.tp-theme{
+  --tp-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --tp-text: #111;
+  --tp-muted: #555;
+  --tp-bg: #ffffff;
+  --tp-card-bg: #fafafa;
+  --tp-border: #e6e6e6;
+  --tp-accent: #111;
+  --tp-accent-soft: #c5d1ba;
+  --tp-pill-bg: #f7f7f7;
+  --tp-pill-text: #111;
+  --tp-pill-bg-active: #111;
+  --tp-pill-text-active: #fff;
+  --tp-tab-muted: #9aa0a6;
+  --tp-tab-active: #111;
+  --tp-tab-underline: #111;
+  --tp-overlay-start: rgba(0,0,0,.08);
+  --tp-overlay-end: rgba(0,0,0,.55);
+  --tp-overlay-text: #fff;
+  --tp-radius: 14px;
+  --tp-radius-lg: 16px;
+  --tp-shadow: 0 10px 30px rgba(0,0,0,.25);
+  --tp-gap: 20px;
+  --tp-pad: 16px;
+  --tp-modal-backdrop: rgba(0,0,0,.55);
+  --tp-button-bg: #c5d1ba;
+  --tp-button-text: #111;
+}
+
+.tp-theme{font-family:var(--tp-font); color:var(--tp-text)}
+
+/* Base grid and controls */
+.tp-controls{display:flex;flex-direction:column;gap:12px;margin:0 0 16px}
+.tp-tabs,.tp-filters{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Top tabs look like a location nav */
+.tp-tabs .tp-tab{appearance:none;background:none;border:none;color:var(--tp-tab-muted);padding:8px 10px 10px;cursor:pointer;border-bottom:2px solid transparent}
+.tp-tabs .tp-tab.is-active{color:var(--tp-tab-active);border-color:var(--tp-tab-underline);font-weight:600}
+
+/* Role filters as filled pills */
+.tp-filters .tp-filter{appearance:none;border:1px solid var(--tp-border);background:var(--tp-pill-bg);color:var(--tp-pill-text);padding:6px 12px;border-radius:18px;cursor:pointer;text-transform:uppercase;font-size:12px;letter-spacing:.04em}
+.tp-filters .tp-filter.is-active{background:var(--tp-pill-bg-active);color:var(--tp-pill-text-active);border-color:var(--tp-pill-bg-active)}
+
+.tp-grid{display:grid;grid-template-columns:repeat(var(--tp-cols,3),minmax(0,1fr));gap:var(--tp-gap)}
+.tp-grid-wrapper[data-columns="2"] .tp-grid{--tp-cols:2}
+.tp-grid-wrapper[data-columns="3"] .tp-grid{--tp-cols:3}
+.tp-grid-wrapper[data-columns="4"] .tp-grid{--tp-cols:4}
+
+/* Card */
+.tp-card{position:relative;border-radius:var(--tp-radius);overflow:hidden;background:var(--tp-card-bg)}
+.tp-card-media{position:relative}
+.tp-card-img{display:block;width:100%;height:auto}
+.tp-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,var(--tp-overlay-start),var(--tp-overlay-end));color:var(--tp-overlay-text);display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transform:translateY(8px);transition:opacity .25s ease, transform .25s ease;backdrop-filter:var(--tp-overlay-blur, none)}
+.tp-card:hover .tp-card-overlay,.tp-card:focus-within .tp-card-overlay{opacity:1;transform:translateY(0)}
+.tp-card-meta{padding:var(--tp-pad)}
+.tp-card-specialty span{opacity:.9;margin-right:6px;font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.04em}
+.tp-card-intro{margin-top:4px;font-size:14px;opacity:.95}
+.tp-card-open{position:absolute;right:12px;bottom:12px;width:42px;height:42px;border-radius:999px;background:var(--tp-button-bg);border:0;color:var(--tp-button-text);font-size:22px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.tp-card-name{padding:10px 6px 0 6px;font-weight:600}
+
+/* Hidden state for filtering */
+.tp-card.is-hidden{display:none}
+
+/* Modal */
+.tp-modal{position:fixed;inset:0;display:none;z-index:2147483000}
+.tp-modal[aria-hidden="false"]{display:block}
+.tp-modal-backdrop{position:absolute;inset:0;background:var(--tp-modal-backdrop, rgba(0,0,0,.65));backdrop-filter:var(--tp-overlay-blur, none)}
+.tp-modal-dialog{position:relative;margin:40px auto;background:var(--tp-bg, #fff);color:var(--tp-text, #111);border-radius:var(--tp-radius-lg, 16px);max-width:1120px;box-shadow:var(--tp-shadow, 0 10px 30px rgba(0,0,0,.25));display:flex;flex-direction:column;overflow:hidden;height:calc(100dvh - 80px);max-height:calc(100dvh - 80px)}
+.tp-modal-header{display:flex;align-items:center;gap:12px;padding:var(--tp-pad);border-bottom:1px solid var(--tp-border)}
+.tp-modal-name{flex:1;margin:0;font-size:28px}
+.tp-modal-sub{display:flex;gap:14px;opacity:.85}
+.tp-modal-nav{display:flex;gap:6px}
+.tp-modal-nav button{border:0;background:#f5f5f5;border-radius:8px;width:34px;height:34px;cursor:pointer}
+.tp-modal-body{display:grid;grid-template-columns:1fr 1fr;gap:var(--tp-gap);padding:var(--tp-pad);overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.tp-modal-media{display:flex;flex-direction:column;gap:10px}
+.tp-modal-img{width:100%;height:auto;border-radius:8px}
+.tp-modal-social{display:flex;gap:8px}
+.tp-modal-social .tp-social{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:#122;color:#fff;border-radius:8px}
+.tp-modal-social .tp-social i{font-size:16px;line-height:1}
+.tp-modal-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tp-tag{background:#eee;border-radius:6px;padding:4px 8px;font-size:12px}
+.tp-modal-intro{font-weight:600}
+.tp-modal-bio p{margin:.6em 0}
+
+@media (max-width: 900px){
+  .tp-modal-dialog{margin:0;height:100dvh;max-height:100dvh;border-radius:0;width:100%}
+  .tp-modal-header{position:sticky;top:0;background:var(--tp-bg, #fff);z-index:2}
+  .tp-modal-body{grid-template-columns:1fr}
+}

@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+# Treat these as text for diffs
+*.php text
+*.js  text
+*.css text
+*.md  text
+*.json text
+
+# Export-ignore files if packaging a release
+.gitignore export-ignore
+.gitattributes export-ignore
+.vscode/ export-ignore
+.idea/ export-ignore
+tests/ export-ignore

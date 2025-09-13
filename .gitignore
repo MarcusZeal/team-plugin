@@ -1,0 +1,34 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node / build outputs
+node_modules/
+dist/
+build/
+.parcel-cache/
+.cache/
+coverage/
+*.map
+
+# PHP / Composer
+vendor/
+composer.lock
+
+# Local env / WordPress
+.env
+.env.*
+.wp-env.json
+wp-local-docker-config.php
+
+# Misc
+*.tmp
+*.swp
+*.swo
