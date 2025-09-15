@@ -26,8 +26,9 @@ class TP_Assets {
             'tp-fontawesome', 'et_font_awesome', 'elementor-icons-fa-solid', 'elementor-icons-fa-brands', 'elementor-icons-fa-regular'
         ];
         foreach ( $known as $handle ) {
-            if ( wp_style_is( $handle, 'enqueued' ) || wp_style_is( $handle, 'registered' ) ) {
-                return; // Something FA-like is present.
+            // Only skip if a matching handle is actually enqueued or already printed.
+            if ( wp_style_is( $handle, 'enqueued' ) || wp_style_is( $handle, 'done' ) ) {
+                return; // Something FA-like is present and active.
             }
         }
         if ( apply_filters( 'tp/enqueue_fontawesome', true ) ) {
