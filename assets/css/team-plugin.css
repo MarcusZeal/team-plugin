@@ -74,7 +74,7 @@
 .tp-modal-name{flex:1;margin:0;font-size:28px}
 .tp-modal-sub{display:flex;gap:14px;opacity:.85}
 .tp-modal-nav{display:flex;gap:6px}
-.tp-modal-nav button{border:0;background:#f5f5f5;border-radius:8px;width:34px;height:34px;cursor:pointer}
+.tp-modal-nav button{all: unset; text-align: center; border: 0;background:#f5f5f5;border-radius:8px;width:34px;height:34px;cursor:pointer}
 .tp-modal-body{display:grid;grid-template-columns:1fr 1fr;gap:var(--tp-gap);padding:var(--tp-pad);overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .tp-modal-media{display:flex;flex-direction:column;gap:10px}
 .tp-modal-img{width:100%;height:auto;border-radius:8px}

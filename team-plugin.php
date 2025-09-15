@@ -3,7 +3,7 @@
  * Plugin Name: Team People Grid (ACF)
  * Plugin URI: https://zealoussites.com
  * Description: Sortable/filterable team grid with hover overlays and footer-rendered modals. Built to integrate with ACF Pro.
- * Version: 1.0
+ * Version: 1.0.2
  * Author: Marcus Zeal
  * Author URI: https://zealoussites.com
  * Text Domain: team-plugin
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'TP_PLUGIN_FILE', __FILE__ );
 define( 'TP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'TP_PLUGIN_VERSION', '1.0' );
+define( 'TP_PLUGIN_VERSION', '1.0.2' );
 
 // Simple autoloader for plugin classes.
 spl_autoload_register( function ( $class ) {
